@@ -54,3 +54,39 @@ def hello():
 cdnjs bootstrap 5.3 ->version 5.3.3 ->
 
 6)JS, SPRING FOOTER에 위치
+
+==========
+1)  순서 지키기
+if __name__ =="__main__" :
+    load_lf()
+    app.run()
+
+ load_lf()가 먼저이므로
+
+tfidf_vector=None
+model_lf=None
+
+def load_lf():
+    global tfidf_vector, model_lf 
+    tfidf_vector=joblib.load(os.path.join(app.root_path, "model/tfidf_vect.pkl"))
+    model_lf=joblib.load(os.path.join(app.root_path, "model/lf.pkl"))
+    pass
+
+2) 입력-임베딩/학습- 출력
+AttributeError: Can't get attribute 'tw_tokenzier' on <module '__main__' from 'C:\\NLP_VER1\\app.py'>
+
+okt= Okt()
+
+def tw_tokenzier(text):
+    tokenzier_ko = okt.morphs(text)
+    return tokenzier_ko
+
+3) 경로
+tfidf_vector=joblib.load(os.path.join(app.root_path, "model/tfidf_vect.pkl"))
+    model_lf=joblib.load(os.path.join(app.root_path, "model/lf.pkl"))
+
+4)☆☆☆ 앞에서 했던 과정을 모두 넣어야 한다.
+def lt_transform(review):
+    review=re.sub(r"\d+", " ", review)
+    test_matrix=tfidf_vector.transform([review])
+    return test_matrix
