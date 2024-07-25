@@ -90,3 +90,15 @@ def lt_transform(review):
     review=re.sub(r"\d+", " ", review)
     test_matrix=tfidf_vector.transform([review])
     return test_matrix
+
+==========
+
+    매개변수 전달
+take 2 폼설계 및 전송
+
+1) context
+리액트-useeffect
+spring-securityConfig
+
+요청될 때 method랑 URL이 뭔지 알려주는 역할이 필요
+Flask의 context
