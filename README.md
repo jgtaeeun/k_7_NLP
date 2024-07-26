@@ -102,3 +102,24 @@ spring-securityConfig
 
 요청될 때 method랑 URL이 뭔지 알려주는 역할이 필요
 Flask의 context
+
+==========
+
+템플릿, 플라스크를 이용한 웹 만들기
+
+1)템블릿 연산자
+{{ 변수명 }}          toString연산자
+{%         %}       지시연산자
+
+2) 임베딩 및 학습
+
+3-1) 확장
+{% extends "base.html" %}
+3-2) base.html에 구멍을 뚫는 거  {% block sub_title %}서브 타이틀{% endblock %}
+index.html에 채워놓는 거   {% extends "base.html" %}
+		{% block sub_title %}네이버 영화 리뷰를 활용한 감성분석 ver1{% endblock %}
+
+4)  a 태그
+url_for()
+ href="/predict"
+href={{url_for("nlp_predict")}}
